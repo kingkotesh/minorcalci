@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<!--All the triggered events are handled by onclick event inside the script element.-->
+
+	<script>
+	//Here the event handled for deleting a character.
+	function fun(){
+		var k=f.t.value;
+		var l=k.slice(0,k.length-1)
+		f.t.value=l
+	}
+	
+	// Here the event handled for power button of the calculator.
+	window.onload = function() {
+		var offButton = document.querySelector('input[value="off"]');
+		toggleOnOff(offButton);
+	};
+
+	function toggleOnOff(data) {
+		var button = data;
+		var buttons = document.querySelectorAll('#b');
+		if (button.value === "on") {
+			f.t.value="";
+			buttons.forEach(function(btn) {
+				btn.disabled = false;
+			});
+			button.value = "off";
+			
+			//alert('Calculator is On');
+		} else {
+			f.t.value="ON the Calci"
+			button.value = "on";
+			buttons.forEach(function(btn) {
+				btn.disabled = true;
+			});
+			//alert('Calculator is Off');
+		}
+	}
+
+
+	</script>
+	<!--All these buttons are arranged in the form of a box model and it looks like a calculator. Here we are giving the custom styles-->
+
+	<style>
+		
+		#b,#bb{
+			height:50px;
+			width:50px;
+			font-size:25px;
+			margin:10px;
+			color:red;
+		}
+		#tb{
+			margin-top:5px;
+			height:60px;
+			width:280px;
+			font-size:30px;
+			background-color:yellow;
+			
+		}
+		div{
+			text-align:center;
+			border:solid 5px blue;
+			height:700px;
+			width:300px;
+			background-color:black;
+		}
+		h1{
+		color:cyan;
+		text-decoration:underline;
+		}
+	</style>
+</head>
+<body>
+<!--creating a simple form with buttons and for every button an event will trigger-->
+<center>
+	<div>
+		<h1>Simple Calculator</h1>
+		<form name="f">
+			<input  id="tb" type="text" name="t" value=" "/><br>
+			<br>
+			<!--Here in the event itself the value is just appended to the previous value rather to handle in the function in script tag.-->
+			<input id="b" type="button" value="**2" onclick="t.value+=value"/>
+			<input id="b" type="button" value="%" onclick="t.value+=value"/>
+			<input id="bb" type="button" value="off" onclick="toggleOnOff(this)"/>
+			<br>
+			
+			<input id="b" type="button" value="*" onclick="t.value+=value"/>
+			<input id="b" type="button" value="/" onclick="t.value+=value"/>
+			<input id="b" type="button" value="-" onclick="t.value+=value"/>
+			<br>
+			<input id="b" type="button" value="7" onclick="t.value+=value"/>
+			<input id="b" type="button" value="8" onclick="t.value+=value"/>
+			<input id="b" type="button" value="9" onclick="t.value+=value"/>
+			<br>
+			
+			<input id="b" type="button" value="4" onclick="t.value+=value"/>
+			<input id="b" type="button" value="5" onclick="t.value+=value"/>
+			<input id="b" type="button" value="6" onclick="t.value+=value"/>
+			<br>
+			
+			<input id="b" type="button" value="1" onclick="t.value+=value"/>
+			<input id="b" type="button" value="2" onclick="t.value+=value"/>
+			<input id="b" type="button" value="3" onclick="t.value+=value"/>
+			<br>
+			
+			<input id="b" type="button" value="del" onclick="fun()"/>
+			<input id="b" type="button" value="0" onclick="t.value+=value"/>
+			<input id="b" type="button" value="=" onclick="t.value=eval(t.value)"/>
+			<br>
+
+			<input id="b" type="button" value="." onclick="t.value+=value"/>
+			<input id="b" type="button" value="AC" onclick="t.value=' '"/>
+			<input id="b" type="button" value="+" onclick="t.value+=value"/>
+		</form>
+	</div>
+</center>
+</body>
+</html>
